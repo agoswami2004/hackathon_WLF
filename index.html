@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Form in HTML and CSS | CodingNepal</title>
+  <style>
+    /* Google Fonts Link */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+/* Resetting default styling and setting font-family */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+}
+body {
+    width: 100%;
+    min-height: 100vh;
+    padding: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #00ffcc, #ff00ff); /* Neon gradient */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    animation: glowingBackground 5s ease-in-out infinite; /* Set to 5s */
+}
+
+@keyframes glowingBackground {
+    0% {
+        background: linear-gradient(135deg, #ff00ff, #00ffcc); /* Neon gradient reversed */
+    }
+    50% {
+        background: linear-gradient(135deg, #00ffcc, #ff00ff); /* Neon gradient original */
+    }
+    100% {
+        background: linear-gradient(135deg, #ff00ff, #00ffcc); /* Neon gradient reversed */
+    }
+}
+
+form .input_box a {
+    margin-bottom: 30px; /* Adds space below the 'Forgot Password?' link */
+    display: block;
+}
+
+form button {
+    width: 100%;
+    height: 46px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background: #020443;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 30px; /* Adds space above the 'Log In' button */
+    transition: 0.3s ease;
+}
+
+form button:hover {
+    background: transparent;
+    backdrop-filter: blur(100px);
+}
+
+
+
+body::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); /* Dark overlay with opacity */
+    z-index: -1; /* Place the overlay behind the content */
+}
+
+/* Login form styling */
+.login_form {
+    /* width: 100%;
+    max-width: 435px;
+    background: rgba(255, 255, 255, 0.2); /* Light background with transparency */
+    /* backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 41px 30px;
+    box-shadow: 0 50px 20px rgba(82, 82, 82, 0.15); */ 
+    width: 100%;
+    max-width: 435px;  /* Maximum width of the form */
+    height: auto;      /* Let the form height adjust based on content */
+    max-height: 600px; /* Limit the form's height */
+    background: rgba(255, 255, 255, 0.2); /* Light background with transparency */
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 41px 30px;
+    box-shadow: 0 50px 20px rgba(82, 82, 82, 0.15);
+    overflow: auto; 
+}
+.login_form h3 {
+    font-size: 20px;
+    text-align: center;
+    color: aliceblue;
+}
+/* Google & Apple button styling */
+.login_form .login_option {
+    display: flex;
+    margin: 20px auto;
+    width: 100%;
+    justify-content: space-around; 
+    align-items: center;
+}
+
+.login_form .login_option .option {
+    /* width: calc(100% / 2 - 12px); */
+}
+.login_form .login_option .option a {
+    height: 56px;
+    width: 114%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    /* border: 1px solid #DADAF2; */
+    border-radius: 5px;
+    margin: 4px 0 4px 0;
+    text-decoration: none;
+    color: #8c8cb3;
+    font-weight: 500;
+    transition: 0.2s ease;
+}
+.login_form .login_option .option a:hover {
+    /* background: rgba(255, 255, 255, 0.2);
+    border-color: #ffffff;
+    backdrop-filter: blur(100px);
+    border: solid 3px white; */
+    scale: (1.2);
+}
+.login_form .login_option .option a img {
+    /* max-width: 25px; */
+}
+.login_form p {
+    text-align: center;
+    font-weight: 500;
+    color: #DADAF2;
+}
+.login_form p.separator {
+    position: relative;
+    margin-bottom: 5px;
+    padding: 0 0 10px 0;
+    margin: 0;
+}
+/* Login option separator styling */
+
+form .input_box label {
+    justify-content: center;
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    font-size: 20px;
+    color: rgb(9, 6, 29);
+    text-align: left;
+}
+/* Input field styling */
+form .input_box input {
+    width: 100%;
+    /* height: 57px; */
+    border: none;
+    border-bottom: 2px solid rgb(9, 6, 29);
+    /* outline: none; */
+    background: transparent;
+    font-size: 17px;
+    padding: 0px 20px;
+    margin-bottom: 20px;
+    transition: 0.2s ease;
+}
+form .input_box input:focus {
+    border-color: #626cd6;
+    outline: none;
+}
+form .input_box .password_title label{
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+}
+form .input_box .email_title.label{
+    display: flex;
+    justify-content: space-around;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+}
+form .input_box {
+    position: relative;
+}
+a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 500;
+}
+a:hover {
+    text-decoration: underline;
+}
+/* Login button styling */
+form button {
+    width: 100%;
+    height: 46px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background:  #020443;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: 0.3s ease;
+}
+form button:hover {
+    background:transparent;
+    backdrop-filter: blur(100px);
+}
+.login_form.sign_up{
+    font-size: 30px;
+    margin-top: 10px;
+}
+.login_form.sign_up a:hover{
+    transform: scale(1.2);
+    text-decoration: underline;
+}
+  </style>
+</head>
+<body>
+  <div class="login_form">
+    <!-- Login form container -->
+    <form action="home.html" method="post">
+      <h3>Log in with</h3>
+      <div class="login_option">
+        <!-- Google button -->
+        <div class="option">
+          <a href="#">
+            <img src="google.png" alt="Google"  style="height: 50px; width: 50px;"/>
+            <!-- <span>Google</span> -->
+          </a>
+        </div>
+        <!-- Apple button -->
+        <div class="option">
+          <a href="#">
+            <img src="apple.png" alt="Apple" style="height: 50px; width: 50px;"/>
+            <!-- <span>Apple</span> -->
+          </a>
+        </div>
+      </div>
+      <!-- Login option separator -->
+      <p class="separator">or</p>
+      <!-- Email input box -->
+      <div class="input_box">
+        <div class="email_title">
+            <label for="email">Email</label>
+        </div>
+        <input type="email" id="email" required />
+      </div>
+
+      <!-- Paswwrod input box -->
+      <div class="input_box">
+        <div class="password_title">
+          <label for="password">Password</label>
+        </div>
+        <input type="password" id="password" required />
+        <a href="#" style="margin: 20px 0;">Forgot Password?</a>
+      </div>
+
+       <!-- Login button -->
+      <button type="submit">Log In</button>
+      <p class="sign_up" style="padding: 0;">Don't have an account? <a href="#">Sign up!</a></p>
+    </form>
+    <script>
+        // JavaScript to handle form submission and redirect to home page
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form from submitting normally
+    
+            // Add any validation or checks if necessary (e.g., email/password validation)
+            
+            // After validation (if any), redirect to home page
+            window.location.href = "home.html"; // Redirect to home page
+        });
+    </script>
+    
+  </div>
+</body>
+</html>

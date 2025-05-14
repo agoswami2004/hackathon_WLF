@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Webbie</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&display=swap" rel="stylesheet">
+
+  <style>
+    /* Position the Three.js canvas as background */
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1; /* Ensure Three.js canvas is behind the content */
+    }
+
+    .navbar, .intro, footer {
+      position: relative; /* Ensure they are above the Three.js background */
+      z-index: 1;
+    }
+
+    /* Styling for the navbar and other elements */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .logo {
+      color: #63E6BE;
+    }
+
+    .menu {
+      color: #63E6BE;
+    }
+
+    .intro {
+      color: white;
+      text-align: center;
+      padding: 100px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #333;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <!-- Three.js Canvas (3D Background) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script>
+    // Scene, Camera, and Renderer setup for Three.js
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // Variables for the strings (threads)
+    const numThreads = 2000; // Increase the number of threads
+    const radius = 5;
+    const geometry = new THREE.BufferGeometry();
+    const positions = new Float32Array(numThreads * 2 * 3); // 2 points per thread, 3 coordinates per point
+    const colors = new Float32Array(numThreads * 2 * 3); // Color array for each point
+
+    // Create random threads (lines) forming a sphere and assign colors
+    for (let i = 0; i < numThreads; i++) {
+      const theta = Math.random() * Math.PI * 2;
+      const phi = Math.random() * Math.PI;
+
+      const x1 = radius * Math.sin(phi) * Math.cos(theta);
+      const y1 = radius * Math.sin(phi) * Math.sin(theta);
+      const z1 = radius * Math.cos(phi);
+
+      // Randomize the endpoint of the thread a bit
+      const offset = 0.2;
+      const x2 = x1 + Math.random() * offset - offset / 2;
+      const y2 = y1 + Math.random() * offset - offset / 2;
+      const z2 = z1 + Math.random() * offset - offset / 2;
+
+      // Set positions for the thread (line)
+      positions.set([x1, y1, z1, x2, y2, z2], i * 6);
+
+      // Set colors for each point
+      if (i < numThreads / 2) {
+        // Neon purple/pink for the first half
+        colors.set([1.0, 0.0, 1.0, 1.0, 0.0, 1.0], i * 6); // RGB for pink/purple
+      } else {
+        // Bluish color for the second half
+        colors.set([0.0, 0.0, 1.0, 0.0, 0.5, 1.0], i * 6); // RGB for blue
+      }
+    }
+
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+    // Line material (neon effect with vertex colors)
+    const material = new THREE.LineBasicMaterial({
+      vertexColors: THREE.VertexColors, // Enable vertex coloring
+      linewidth: 2
+    });
+
+    // Create lines and add them to the scene
+    const lines = new THREE.LineSegments(geometry, material);
+    scene.add(lines);
+
+    // Camera position
+    camera.position.z = 10;
+
+    // Animation function
+    const animate = function () {
+      requestAnimationFrame(animate);
+
+      // Rotate the strings (threads)
+      lines.rotation.x += 0.01;
+      lines.rotation.y += 0.01;
+
+      renderer.render(scene, camera);
+    };
+
+    animate();
+
+    // Resize handling
+    window.addEventListener('resize', () => {
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+    });
+  </script>
+
+  <!-- Main content (overlaid on top of the background) -->
+  <header>
+    <div class="navbar">
+      <div class="logo"><i class="fa-brands fa-playstation fa-2xl" style="color: #63E6BE;"></i> jose</div>
+      <div>
+        <i class="fa-regular fa-comment fa-xl" style="color:#63E6BE"></i>
+        <a href="#" style="color:#63E6BE;">HIRE ME</a>
+      </div>
+      <div class="menu">
+        <i class="fa-solid fa-bars fa-xl" style="color: #63E6BE;"></i>
+      </div>
+    </div>
+  </header>
+
+  <div class="introimage">
+    <div class="intro">
+      <h1 style="font-size: 4em; color: #ffffff;">Hi, my <br>name is <strong style="font-size: 75px; color: #ffffff;">Jose Mohrinho .</strong></br></strong></h1>
+      <p>I am a <strong>Senior Software Developer </strong> and <strong>Automation Tools Expert</strong> <i class="fa-solid fa-wand-sparkles fa-sm" style="color: #63E6BE;"></i></strong></p>
+      <h1 id="next">Learn about my <a href="project.html" id="pro">Projects</a>.</h1>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Jose. All rights reserved.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veltrix</title>
+    <link rel="stylesheet" href="styleHome.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        <!-- Profile Icon -->
+        <div class="profile-icon">
+            <div class="profile-label">
+                <span class="arrow">➜</span>
+                <span class="text">MY PROFILE</span>
+            </div>
+            
+            <a href="abc.html">
+            <img src="pfp.jpg" alt="Profile Icon"></a> 
+        </div>
+
+        <!-- Centered Welcome Text -->
+        <div class="header-center">
+            <p style="font-size: 50px;">&nbsp;welcome to <strong style="font-size:70px;">VelTrix</strong></p>
+        </div>
+
+        <!-- Search Bar -->
+<div class="search-container">
+    <input type="text" id="search" class="search-bar" 
+        placeholder="Search...">
+    <button onclick="performSearch()" style="background: transparent;">Search</button>
+</div>
+
+<script>
+    function performSearch() {
+        let query = document.getElementById("search").value.trim().toLowerCase();
+        if (query === "jose") {
+            window.location.href = "abc.html"; // Redirect if search is "jose"
+        } else {
+            alert("No results found.");
+        }
+    }
+</script>
+
+<style>
+    /* 🎨 Search Bar Styling */
+    .search-container {
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .search-bar {
+        padding: 8px;
+        width: 200px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        outline: none;
+        font-size: 16px;
+    }
+
+    .search-container button {
+        margin-left: 5px;
+        padding: 8px 12px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .search-container button:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+    </div>
+
+    <!-- MOST REVIEWED ONES Heading -->
+    <h1 class="section-heading">MOST REVIEWED ONES</h1>
+
+    <!-- Profile Grid Section -->
+    <div class="grid-container">
+        <div class="grid-box"><p><a href="#">ByteLabs</a></p></div>
+        <div class="grid-box"><p><a href="#">CodeHorizon</a></p></div>
+        <div class="grid-box"><p><a href="#">TechVerse</a></p></div>
+        <div class="grid-box"><p><a href="#">DevX</a></p></div>
+        <div class="grid-box"><p><a href="#">InnoTech</a></p></div>
+        <div class="grid-box"><p><a href="#">AlphaCode</a></p></div>
+    </div>
+
+    <!-- IT News Section -->
+    <h1 class="section-heading">LATEST TECH NEWS</h1>
+    <div class="news-container">
+        <div class="news-box"><p><a href="https://iotboys.com/revolution-of-artificial-intelligence-and-how-ai-will-change-the-future-workplace/">Ai revolution in 2005</a></p></div>
+        <div class="news-box"><p><a href="https://www.livescience.com/technology/computing/schrodingers-cat-breakthrough-could-usher-in-the-holy-grail-of-quantum-computing-making-them-error-proof">Quantum Computing Breakthrough</a></p></div>
+        <div class="news-box"><p><a href="https://www.meta.com/quest/quest-pro/?srsltid=AfmBOoq2RsYpDGAWN0CW-bYG9jn79RKlMHerJCIen1myjgMp7LyJS92h">Meta's New VR Headset</a></p></div>
+        <div class="news-box"><p><a href="#">Tesla's Humanoid Robot</a></p></div>
+        <div class="news-box"><p><a href="#">Cybersecurity Trends</a></p></div>
+        <div class="news-box"><p><a href="#">Apple's AI Strategy</a></p></div>
+    </div>
+
+   <!-- Discussion Platform Section -->
+<h1 class="section-heading">JOIN THE DISCUSSION</h1>
+<div class="discussion-section">
+    <p>Share your thoughts on technology, latest trends, and industry news!</p>
+    <textarea id="discussion-input" placeholder="Write something..."></textarea>
+    <button onclick="postDiscussion()">Post</button>
+</div>
+
+<!-- Footer -->
+<footer>
+    © 2025 Veltrix. All rights reserved.
+</footer>
+
+<script>
+    function postDiscussion() {
+        let input = document.getElementById("discussion-input");
+        
+        if (input.value.trim() !== "") {
+            // Store the post in localStorage (to access it on the profile page)
+            localStorage.setItem("discussionNotification", "You have a new discussion post!");
+            
+            // Redirect to the profile page
+            window.location.href = "project.html";  // Change "profile.html" to your actual profile page
+        }
+    }
+</script>
+
+</body>
+</html>

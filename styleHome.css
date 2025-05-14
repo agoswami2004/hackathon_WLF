@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+
+body {
+    font-family: "Poiret One", serif;
+    margin: 0;
+    padding: 0;
+    background: #121212;
+    color: white;
+}
+
+/* Header styling */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #000000;
+    height: 25vh;
+    position: relative;
+}
+
+/* Centering the welcome text */
+.header-center {
+    flex: 1;
+    text-align: center;
+    font-size: 80px;
+    font-weight: bold;
+}
+
+/* Section Heading */
+.section-heading {
+    text-align: center;
+    font-size: 35px;
+    margin-top: 40px;
+    font-weight: bold;
+}
+
+/* Search Bar */
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    width: 350px;
+    padding: 12px;
+    padding-left: 40px;
+    background: transparent;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    color: white;
+    font-size: 18px;
+}
+
+.search-bar::placeholder {
+    color: white;
+}
+.search-container.input.button{
+    border: 2px white solid;
+}
+
+.search-icon {
+    position: absolute;
+    left: 10px;
+    color: white;
+    font-size: 20px;
+}
+
+/* Profile and News Grid */
+.grid-container, .news-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 60px 20px;
+    justify-items: center;
+}
+
+.grid-box, .news-box {
+    background: linear-gradient(45deg, #031a18, #4e7c7f, #445282);
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    border: white 2px solid;
+    font-size: 25px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.grid-box:hover, .news-box:hover {
+    background: linear-gradient(45deg, #031a18, #2e484a, #445282);
+    transform: translateY(-8px);
+}
+
+.grid-box p a, .news-box p a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Discussion Section */
+.discussion-section {
+    text-align: center;
+    margin: 50px auto;
+    max-width: 600px;
+}
+
+.discussion-section textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border: 2px solid white;
+    background: black;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    resize: none;
+}
+
+.discussion-section button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    background: #4e7c7f;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.discussion-feed {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.discussion-post {
+    background: #222;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.time {
+    font-size: 12px;
+    color: gray;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: black;
+    margin-top: 50px;
+}
+.profile-icon {
+    position: absolute;
+    left: 20px; /* Adjust the position */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.profile-icon img {
+    width: 40px;  /* Adjust the size */
+    height: 40px;
+    border-radius: 50%; /* Makes it a perfect circle */
+    object-fit: cover;  /* Ensures it maintains aspect ratio */
+    border: 2px solid #ffffff; /* Optional border */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional shadow */
+    transition: transform 0.2s ease-in-out;
+}
+
+.profile-icon img:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+.arrow {
+    font-size: 20px;
+    color: #63E6BE;
+    animation: bounce 1.2s infinite alternate ease-in-out;
+}
+@keyframes bounce {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(8px); }
+}

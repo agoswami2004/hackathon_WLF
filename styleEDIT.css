@@ -1,0 +1,134 @@
+/* General Page Styling */
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+
+/* General Page Styling */
+body {
+    font-family: "Poiret One", serif;
+    margin: 0;
+    padding: 0;
+    background: #121212; /* Dark background for contrast */
+    color: white;
+}
+
+.poiret-one-regular {
+    font-family: "Poiret One", serif;
+    font-weight: 600;
+    font-style: normal;
+}header {
+    text-align: center;
+    padding: 20px;
+    /*background: linear-gradient(45deg, #3b2e60, #58330c, #5e1731);*/
+    background: #121212; 
+}
+
+h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+/* Project Container */
+.projects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Individual Project Box */
+.project-box {
+    background: linear-gradient(45deg, #2d0638, #306991, #2d0638);
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 250px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.project-box:hover {
+    transform: scale(1.05);
+}
+
+/* Buttons for Edit Page */
+.edit-delete-container {
+    margin-top: 10px;
+}
+
+.edit-project-btn, .delete-project-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.edit-project-btn:hover {
+    background: #4eb6a5;
+}
+
+.delete-project-btn:hover {
+    background: #db3471;
+}
+
+/* Add New Project Box */
+.add-project {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
+    position: relative;
+    border: 2px dashed rgba(255, 255, 255, 0.5);
+}
+
+.plus-symbol {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.tooltip {
+    display: none;
+    position: absolute;
+    top: -30px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+
+.add-project:hover .tooltip {
+    display: block;
+}
+
+/* Navigation Button for Editing Page */
+.edit-btn-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.edit-btn {
+    
+    background: linear-gradient(45deg, #c4afc9, #73cdc4, #8a4961);
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.edit-btn:hover {
+    background: linear-gradient(45deg, #346a67, #aa64c9, #697293);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .project-box {
+        width: 90%;
+    }
+}

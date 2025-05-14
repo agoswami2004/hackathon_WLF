@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" id="aishee">
+<head>
+  <title>Projects | Lexi</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poiret One", serif;
+    }
+
+    body {
+      background: black;
+      color: white;
+      overflow: hidden;
+    }
+
+    .wave-container {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    svg {
+      position: absolute;
+      width: 200%; /* Extend to cover full screen width */
+      height: 100%;
+    }
+
+    .wave {
+      fill: none;
+      stroke-width: 3;
+    }
+
+    .wave-1 {
+      stroke: rgba(0, 51, 204, 0.8);
+    }
+
+    .wave-2 {
+      stroke: rgba(0, 92, 230, 0.6);
+    }
+
+    .wave-3 {
+      stroke: rgba(0, 163, 255, 0.4);
+    }
+  </style>
+</head>
+<body>
+  <div class="wave-container">
+    <svg>
+      <path class="wave wave-1" d="M 0 300 Q 400 200 800 300 T 1600 300" />
+    </svg>
+    <svg>
+      <path class="wave wave-2" d="M 0 300 Q 400 200 800 300 T 1600 300" />
+    </svg>
+    <svg>
+      <path class="wave wave-3" d="M 0 300 Q 400 200 800 300 T 1600 300" />
+    </svg>
+  </div>
+
+  <script>
+    const wavePaths = [
+      "M 0 300 Q 400 200 800 300 T 1600 300",
+      "M 0 300 Q 400 400 800 300 T 1600 300",
+      "M 0 300 Q 400 250 800 300 T 1600 300",
+    ];
+
+    function animateWaves() {
+      const waves = document.querySelectorAll(".wave");
+      let index = 0;
+
+      setInterval(() => {
+        index = (index + 1) % wavePaths.length;
+
+        waves.forEach((wave, i) => {
+          wave.setAttribute("d", wavePaths[(index + i) % wavePaths.length]);
+        });
+      }, 500); // Change every 500ms for smooth transition
+    }
+
+    animateWaves();
+  </script>
+</body>
+</html>
